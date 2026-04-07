@@ -1,1 +1,471 @@
-<html><body>quick test</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CREAO Content Calendar — Mar 27 – Apr 24, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0a0a0a;color:#e0e0e0;padding:24px;-webkit-font-smoothing:antialiased}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:16px;max-width:1280px;margin:0 auto 24px}
+.header h1{font-size:26px;font-weight:800;color:#fff;letter-spacing:-0.02em}
+.header h1 span{color:#666;font-weight:400;font-size:16px}
+.header-meta{display:flex;gap:20px;font-size:13px;color:#888}
+.header-meta .stat{text-align:center}
+.header-meta .stat-num{font-size:20px;font-weight:700;color:#fff;display:block}
+.header-meta .stat-label{font-size:10px;text-transform:uppercase;letter-spacing:0.5px}
+.content{max-width:1280px;margin:0 auto}
+.phases-section{margin-bottom:24px}
+.phase-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+.phase-card{background:#111;border:1px solid #222;border-radius:10px;padding:14px;border-top:3px solid}
+.phase-card .ph-name{font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:2px}
+.phase-card .ph-time{font-size:0.7rem;color:#888;margin-bottom:6px}
+.phase-card .ph-desc{font-size:0.78rem;color:#aaa;line-height:1.5}
+.lane-box{background:#0a0a0a;border:1px solid #222;border-radius:8px;padding:10px 14px;margin-top:8px;font-size:12px;color:#888}
+.lane-box strong{color:#ccc}
+.filters{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;align-items:center}
+.filter-btn{padding:5px 12px;border-radius:6px;border:1px solid #333;background:transparent;color:#999;font-size:11px;cursor:pointer;transition:all .2s;font-family:inherit}
+.filter-btn:hover{border-color:#555;color:#fff}
+.filter-btn.active{background:#fff;color:#000;border-color:#fff}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#888;padding:3px 8px;border-radius:5px}
+.legend-dot{width:8px;height:8px;border-radius:3px;flex-shrink:0}
+.vid-legend{display:flex;gap:16px;margin-bottom:20px;font-size:11px;color:#888}
+.vid-legend span{display:flex;align-items:center;gap:4px}
+.week-row-label{font-size:12px;font-weight:600;color:#666;margin:20px 0 8px;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:8px}
+.week-row-label .phase-tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:0.5px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:6px}
+.day-hdr{font-size:10px;font-weight:600;color:#555;text-transform:uppercase;text-align:center;padding:6px 0}
+.day-cell{background:#111;border-radius:10px;padding:10px;min-height:140px;border:1px solid #1a1a1a;transition:border-color .2s}
+.day-cell:hover{border-color:#333}
+.day-cell.weekend{background:#0d0d0d}
+.day-cell.launch{border:1px solid #ef444440;background:#110a0a}
+.day-cell.empty{background:transparent;border:1px solid transparent}
+.day-date{font-size:12px;font-weight:600;color:#555;margin-bottom:8px}
+.day-date .dow{color:#444;font-weight:400}
+.day-date .launch-badge{font-size:9px;background:#ef4444;color:#fff;padding:1px 6px;border-radius:3px;margin-left:4px;font-weight:700}
+.pc{padding:6px 8px;border-radius:7px;margin-bottom:4px;border-left:3px solid;font-size:10px;line-height:1.4;cursor:pointer;transition:transform .1s}
+.pc:hover{transform:translateX(2px)}
+.pc .pc-slot{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;opacity:.6;margin-bottom:1px}
+.pc .pc-title{font-weight:600;color:#ddd;font-size:11px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pc .pc-badges{display:flex;gap:3px;margin-top:3px;flex-wrap:wrap}
+.pc .pc-badge{font-size:8px;font-weight:700;padding:1px 5px;border-radius:3px;text-transform:uppercase}
+.vid-n{background:#1e3a5f;color:#60a5fa}
+.vid-o{background:#2a1f0a;color:#f59e0b}
+.hash-badge{background:#ef444430;color:#ef4444}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100;backdrop-filter:blur(4px);justify-content:center;align-items:center}
+.modal-overlay.open{display:flex}
+.modal{background:#141414;border:1px solid #2a2a2a;border-radius:14px;max-width:640px;width:92%;max-height:85vh;overflow-y:auto;padding:28px}
+.modal h3{font-size:17px;color:#fff;margin-bottom:4px}
+.modal .m-meta{font-size:12px;color:#666;margin-bottom:14px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.modal .m-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:4px;font-weight:600}
+.modal .m-section{margin-bottom:16px}
+.modal .m-section h4{font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+.modal .m-copy{font-size:13px;color:#ccc;line-height:1.7;white-space:pre-wrap;background:#0a0a0a;padding:14px;border-radius:8px;border:1px solid #1a1a1a;font-family:'Inter',sans-serif}
+.modal .m-visual{font-size:12px;color:#888;padding:8px 12px;background:#111;border-radius:6px;margin-top:8px}
+.modal .m-visual strong{color:#aaa}
+.modal .m-alert{background:#1a1a0a;border:1px solid #f59e0b40;border-radius:6px;padding:8px 12px;font-size:12px;color:#f59e0b;margin-bottom:12px}
+.modal .vb{background:#0a0f1a;border:1px solid #1e3a5f;border-radius:8px;padding:14px;margin-top:12px}
+.modal .vb h4{color:#60a5fa;font-size:12px;margin-bottom:8px}
+.modal .vb-row{display:grid;grid-template-columns:80px 1fr;gap:4px;font-size:12px;margin-bottom:4px}
+.modal .vb-label{color:#666;font-weight:600}
+.modal .vb-val{color:#ccc}
+.modal .vid-pri-tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-left:8px}
+.close-btn{position:sticky;top:0;float:right;background:#222;border:none;color:#888;width:30px;height:30px;border-radius:8px;cursor:pointer;font-size:16px;font-family:inherit;z-index:10}
+.close-btn:hover{background:#333;color:#fff}
+.section-divider{margin:48px 0 32px;padding-top:24px;border-top:1px solid #1a1a1a}
+.section-divider h2{font-size:20px;font-weight:800;color:#fff;margin-bottom:4px}
+.section-divider .sub{color:#666;font-size:13px;margin-bottom:20px}
+.prod-table{width:100%;border-collapse:collapse;font-size:12px}
+.prod-table th{text-align:left;color:#666;font-weight:600;padding:8px 10px;border-bottom:1px solid #222;text-transform:uppercase;font-size:10px;letter-spacing:0.5px}
+.prod-table td{padding:8px 10px;border-bottom:1px solid #111;color:#aaa}
+.prod-table tr:hover td{background:#0a0a0a}
+.arit-table{width:100%;border-collapse:collapse}
+.arit-table td{padding:12px 16px;border-bottom:1px solid #1a1a1a;font-size:13px;color:#ccc}
+.arit-banner{background:#110a0a;border:1px solid #ef444430;border-radius:10px;padding:16px;margin-bottom:16px}
+.arit-banner strong{color:#ef4444}
+details{margin-bottom:16px}
+details summary{font-size:12px;font-weight:600;color:#888;cursor:pointer;text-transform:uppercase;letter-spacing:1px;padding:8px 0}
+details[open] summary{margin-bottom:8px}
+.rules-box{background:#111;border:1px solid #222;border-radius:10px;padding:16px;font-size:12px;color:#aaa;line-height:1.8}
+.rules-box strong{color:#fff}
+.tz-table{width:auto;border-collapse:collapse;font-size:13px;margin:8px 0}
+.tz-table th,.tz-table td{padding:6px 16px;text-align:center;border-bottom:1px solid #1a1a1a}
+.tz-table th{color:#666;font-weight:600;font-size:11px;text-transform:uppercase}
+.tz-table td{color:#ccc}
+.tz-table .best{color:#4ade80;font-weight:600}
+.themes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.theme-card{background:#111;border:1px solid #222;border-radius:8px;padding:10px;border-left:3px solid}
+.theme-card .t-name{font-size:12px;font-weight:700;color:#fff;margin-bottom:2px}
+.theme-card .t-pct{font-size:11px;font-weight:700;margin-bottom:4px}
+.theme-card .t-desc{font-size:10px;color:#888;line-height:1.4}
+.feature-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}
+.tier-card{background:#111;border:1px solid #222;border-radius:10px;padding:14px}
+.tier-card h4{font-size:12px;font-weight:700;margin-bottom:8px}
+.tier-card ul{list-style:none;font-size:11px;color:#aaa;line-height:1.8}
+.tier-card ul li::before{content:"→ ";color:#666}
+.throughlines{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}
+.throughline{background:#111;border:1px solid #222;border-radius:8px;padding:10px 14px;font-size:12px;color:#ccc}
+.throughline strong{color:#fff;display:block;margin-bottom:2px}
+@media(max-width:900px){.cal-grid{grid-template-columns:repeat(2,1fr)}.day-hdr{display:none}.phase-cards,.themes-grid{grid-template-columns:1fr 1fr}.feature-tiers,.throughlines{grid-template-columns:1fr}}
+@media(max-width:500px){.phase-cards,.themes-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div><h1>CREAO Content Calendar <span>Mar 27 – Apr 24, 2026</span></h1></div>
+  <div class="header-meta">
+    <div class="stat"><span class="stat-num">82</span><span class="stat-label">Posts</span></div>
+    <div class="stat"><span class="stat-num">18</span><span class="stat-label">Necessary 🎬</span></div>
+    <div class="stat"><span class="stat-num">14</span><span class="stat-label">Optional 🎬</span></div>
+    <div class="stat"><span class="stat-num">59</span><span class="stat-label">Designer Assets</span></div>
+    <div class="stat"><span class="stat-num">12</span><span class="stat-label">Screenshots</span></div>
+  </div>
+</div>
+<div class="content">
+
+<!-- PHASES -->
+<div class="phases-section">
+  <div style="font-size:13px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Content Phases</div>
+  <div class="phase-cards">
+    <div class="phase-card" style="border-top-color:#ef4444">
+      <div class="ph-name">Phase 1: Launch & First Steps</div>
+      <div class="ph-time">Mar 30 – Apr 2 (~3 days)</div>
+      <div class="ph-desc">Launch moment. First tutorial. Get people to build their first agent.</div>
+    </div>
+    <div class="phase-card" style="border-top-color:#4ade80">
+      <div class="ph-name">Phase 2: Features & Workflows</div>
+      <div class="ph-time">Apr 3 – Apr 24 (~3 weeks)</div>
+      <div class="ph-desc">Progressive features → complex workflows. Overlaps intentionally.</div>
+    </div>
+    <div class="phase-card" style="border-top-color:#f97316">
+      <div class="ph-name">Phase 3: Agent Chains</div>
+      <div class="ph-time">Late Apr / Early May</div>
+      <div class="ph-desc">Team case studies. Real chains. Before/after. Honest timelines.</div>
+    </div>
+    <div class="phase-card" style="border-top-color:#a78bfa">
+      <div class="ph-name">Phase 4: Systems & Scale</div>
+      <div class="ph-time">Mid-May onward</div>
+      <div class="ph-desc">Systems of agents. Organizational transformation. Ongoing.</div>
+    </div>
+  </div>
+  <div class="lane-box">
+    <strong>Lane's Framework:</strong> One agent = task → A few agents = function → A system of agents = transforms operations
+  </div>
+</div>
+
+<!-- COLLAPSIBLE: Rules, Timezones, Themes, Features, Throughlines -->
+<details>
+  <summary>⏰ Time Zones</summary>
+  <table class="tz-table">
+    <tr><th>Slot</th><th>CST (China)</th><th>UTC</th><th>ET (North America)</th></tr>
+    <tr><td>🌅 Morning (AM)</td><td>10:00 AM</td><td>2:00 AM</td><td>10:00 PM (prev day)</td></tr>
+    <tr><td>☀️ Afternoon (PM)</td><td>5:00 PM</td><td>9:00 AM</td><td>5:00 AM</td></tr>
+    <tr><td class="best">🌙 Evening (EVE)</td><td class="best">9:00 PM ⭐</td><td class="best">1:00 PM</td><td class="best">9:00 AM</td></tr>
+  </table>
+  <div style="font-size:11px;color:#666;margin-top:6px">9PM CST = best global overlap (1PM UTC + 9AM ET). Strongest posts here.</div>
+</details>
+
+<details>
+  <summary>📏 Rules & Guidelines</summary>
+  <div class="rules-box">
+    • <strong>AM = Feature</strong> | <strong>PM = Use case</strong> | <strong>EVE = Hot take/engagement</strong><br>
+    • <strong style="color:#ef4444">#CreaoAI</strong> in EVERY post on <strong>March 30 and March 31</strong> only<br>
+    • <strong>"File Preview"</strong> — never "artifact panel." Interactive, clickable, downloadable. NOT editable.<br>
+    • <strong>Team Sharing</strong> — runs in recipient's own workspace. No shared editing.<br>
+    • Most posts SHOULD have a <strong>visual</strong> — 2-3x more impressions on X.<br>
+    • Weekend = simple to produce. Changelog features get <strong>2-day buffer</strong>.<br>
+    • Always <strong>quote-tweet, never naked RT</strong>.<br>
+    • <strong>ARIT: max 2 videos</strong> (3 if necessary). 1 week lead time.<br>
+    • <strong>Max 1 video per day.</strong> NECESSARY = feature demo must have video. OPTIONAL = benefits from video but can run text-only.<br>
+    • Copy must NOT feel AI-generated. Anti-hype, builder tone, anti-tech-bro.<br>
+    • <strong>Video format:</strong> Screen recordings = <strong>16:9 landscape</strong>. On-camera & animated = <strong>1:1 square</strong>.<br>
+    • <strong>Video length:</strong> 20-45s features, 45-90s complex builds. Text overlays, no voiceover for screen recordings. First 3s = action.<br>
+    • <strong>Weekend video rule:</strong> Self-produced videos can NOT post on weekends. Colleague/ARIT videos CAN.<br>
+    • <strong>Reply ratio:</strong> For every 1 reply mentioning CREAO, 4-5 purely valuable with zero self-promotion.<br>
+    • <strong>Marketing focus:</strong> Tutorials, walkthroughs, demos, onboarding, community content. Upbeat, relatable.
+  </div>
+</details>
+
+<details>
+  <summary>🎨 Content Themes (Weekly Mix)</summary>
+  <div class="themes-grid">
+    <div class="theme-card" style="border-left-color:#3b82f6"><div class="t-name">Real Builds</div><div class="t-pct" style="color:#3b82f6">20%</div><div class="t-desc">Actual agents we use daily. Proof, not promises.</div></div>
+    <div class="theme-card" style="border-left-color:#8b5cf6"><div class="t-name">Use Cases</div><div class="t-pct" style="color:#8b5cf6">15%</div><div class="t-desc">"Here's a task → here's how an agent handles it"</div></div>
+    <div class="theme-card" style="border-left-color:#f59e0b"><div class="t-name">Narrative</div><div class="t-pct" style="color:#f59e0b">15%</div><div class="t-desc">Worldview, philosophy, why we built this</div></div>
+    <div class="theme-card" style="border-left-color:#ef4444"><div class="t-name">Hot Takes</div><div class="t-pct" style="color:#ef4444">12%</div><div class="t-desc">Sharp opinions on AI, agents, automation</div></div>
+    <div class="theme-card" style="border-left-color:#10b981"><div class="t-name">Proof</div><div class="t-pct" style="color:#10b981">12%</div><div class="t-desc">Numbers, screenshots, honest results</div></div>
+    <div class="theme-card" style="border-left-color:#06b6d4"><div class="t-name">How It Works</div><div class="t-pct" style="color:#06b6d4">12%</div><div class="t-desc">Feature announcements, tutorials, demos</div></div>
+    <div class="theme-card" style="border-left-color:#ec4899"><div class="t-name">Community</div><div class="t-pct" style="color:#ec4899">8%</div><div class="t-desc">Questions, engagement, user stories</div></div>
+    <div class="theme-card" style="border-left-color:#666"><div class="t-name">Insightful</div><div class="t-pct" style="color:#666">6%</div><div class="t-desc">(Phase 2+) Format TBD — awaiting model</div></div>
+  </div>
+</details>
+
+<details>
+  <summary>🏗️ Feature Tiers</summary>
+  <div class="feature-tiers">
+    <div class="tier-card"><h4 style="color:#4ade80">Tier 1 — Core Differentiators</h4>
+      <ul><li>#1 Saving Agents</li><li>#2 File Preview</li><li>#3 Memory</li><li>#4 Image, Voice & Video</li><li>#5 Scheduling</li></ul>
+    </div>
+    <div class="tier-card"><h4 style="color:#60a5fa">Tier 2 — Strong Supporting</h4>
+      <ul><li>#6 Connectors (30+)</li><li>#7 Persistent Files</li><li>#8 Team Sharing + Inputs</li></ul>
+    </div>
+    <div class="tier-card"><h4 style="color:#f59e0b">Tier 3 — Power User / Phase 2+</h4>
+      <ul><li>#9 APIs + Secret Management</li><li>#10 Skills System</li><li>#11 Browser Use</li></ul>
+    </div>
+  </div>
+</details>
+
+<details>
+  <summary>🎯 Key Throughlines</summary>
+  <div class="throughlines">
+    <div class="throughline"><strong>"Build once. Run forever."</strong>Universal tagline</div>
+    <div class="throughline"><strong>"The gap isn't intelligence — it's action."</strong>Differentiation from ChatGPT et al.</div>
+    <div class="throughline"><strong>Reusability is first-class</strong>Every proof post answers "what happens the SECOND time?"</div>
+    <div class="throughline"><strong>The user is always the protagonist</strong>It's about what THEY build</div>
+  </div>
+</details>
+
+<!-- FILTERS -->
+<div class="filters">
+  <button class="filter-btn active" onclick="filterPosts('all')">All Posts</button>
+  <button class="filter-btn" onclick="filterPosts('necessary')">🎬 Necessary Video</button>
+  <button class="filter-btn" onclick="filterPosts('optional')">🎬 Optional Video</button>
+  <button class="filter-btn" onclick="filterPosts('text')">📝 Text Only</button>
+</div>
+
+<div class="legend">
+<div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>Real Builds</div><div class="legend-item"><div class="legend-dot" style="background:#8b5cf6"></div>Use Cases</div><div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Narrative</div><div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>Hot Takes</div><div class="legend-item"><div class="legend-dot" style="background:#10b981"></div>Proof</div><div class="legend-item"><div class="legend-dot" style="background:#06b6d4"></div>How It Works</div><div class="legend-item"><div class="legend-dot" style="background:#ec4899"></div>Community</div>
+</div>
+<div class="vid-legend">
+  <span><span class="pc-badge vid-n" style="font-size:10px">🎬 NEC</span> Must have video</span>
+  <span><span class="pc-badge vid-o" style="font-size:10px">🎬 OPT</span> Video beneficial</span>
+  <span><span class="pc-badge" style="font-size:10px;background:#ef444420;color:#ef4444">ARIT</span></span>
+  <span><span class="pc-badge" style="font-size:10px;background:#4ade8020;color:#4ade80">TEAM</span></span>
+  <span><span class="pc-badge" style="font-size:10px;background:#60a5fa20;color:#60a5fa">SELF</span></span>
+  <span><span class="pc-badge" style="font-size:10px;background:#1a1a2e;color:#818cf8">16:9</span> Landscape</span>
+  <span><span class="pc-badge" style="font-size:10px;background:#1a1a2e;color:#818cf8">1:1</span> Square</span>
+</div>
+
+<!-- DAY HEADERS -->
+<div class="cal-grid">
+<div class="day-hdr">Mon</div><div class="day-hdr">Tue</div><div class="day-hdr">Wed</div><div class="day-hdr">Thu</div><div class="day-hdr">Fri</div><div class="day-hdr">Sat</div><div class="day-hdr">Sun</div>
+</div>
+
+<!-- CALENDAR WEEKS -->
+<div id="calendar"></div>
+
+
+<!-- PHASE 3 PLAN: AGENT CHAINS & FUNCTIONS -->
+<div class="section-divider">
+  <h2>🔗 Phase 3 Plan: Agent Chains & Functions</h2>
+  <p class="sub">Late April / Early May — Content built entirely around the CREAO team's own real automation journeys.</p>
+
+  <div style="background:#111;border:1px solid #222;border-radius:10px;padding:20px;margin-bottom:20px;">
+    <h3 style="font-size:14px;color:#fff;margin-bottom:8px;">🎯 The Strategy: Our Own Team as Case Studies</h3>
+    <p style="font-size:13px;color:#ccc;line-height:1.7;margin-bottom:14px;">Phase 3 shifts from <strong style="color:#fff;">"what can one agent do"</strong> to <strong style="color:#fff;">"what happens when agents work together."</strong> Not hypotheticals, not demos — real people on the team, real chains they built, real results.</p>
+
+    <div style="background:#0a0a0a;border:1px solid #333;border-radius:8px;padding:12px 16px;margin-bottom:16px;">
+      <div style="font-size:10px;color:#f97316;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Lane's Framework — Phase 3 Level</div>
+      <p style="font-size:14px;color:#fff;font-weight:600;margin:0;">One agent = task &nbsp;→&nbsp; <span style="color:#f97316;">A few agents = function</span> &nbsp;→&nbsp; System of agents = transforms operations</p>
+    </div>
+
+    <h4 style="font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin:20px 0 12px;">📌 Content Pillars</h4>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;">
+      <div style="background:#0a0a0a;border:1px solid #1a1a1a;border-radius:8px;padding:12px;border-top:2px solid #f97316;">
+        <strong style="color:#fff;font-size:12px;display:block;margin-bottom:4px;">🧑‍💻 Individual Origin Stories</strong>
+        <p style="font-size:11px;color:#888;line-height:1.5;margin:0;">"How [person] started automating their workflow" — the first agent, the aha moment, what changed. Each team member's journey is a separate post/thread.</p>
+      </div>
+      <div style="background:#0a0a0a;border:1px solid #1a1a1a;border-radius:8px;padding:12px;border-top:2px solid #f97316;">
+        <strong style="color:#fff;font-size:12px;display:block;margin-bottom:4px;">⚙️ Function Showcases</strong>
+        <p style="font-size:11px;color:#888;line-height:1.5;margin:0;">"Our marketing function runs on 4 chained agents" — the actual chain, what triggers what, the final output. Real architecture diagrams.</p>
+      </div>
+      <div style="background:#0a0a0a;border:1px solid #1a1a1a;border-radius:8px;padding:12px;border-top:2px solid #f97316;">
+        <strong style="color:#fff;font-size:12px;display:block;margin-bottom:4px;">⏱️ Honest Timelines</strong>
+        <p style="font-size:11px;color:#888;line-height:1.5;margin:0;">"It took 3 conversations to get this right" — relatable, not intimidating. Show the iteration process. Nobody gets it perfect the first time.</p>
+      </div>
+      <div style="background:#0a0a0a;border:1px solid #1a1a1a;border-radius:8px;padding:12px;border-top:2px solid #f97316;">
+        <strong style="color:#fff;font-size:12px;display:block;margin-bottom:4px;">📊 Before / After</strong>
+        <p style="font-size:11px;color:#888;line-height:1.5;margin:0;">"What Monday morning looked like before vs. after" — the most shareable format. Side-by-side comparisons with real numbers.</p>
+      </div>
+      <div style="background:#0a0a0a;border:1px solid #1a1a1a;border-radius:8px;padding:12px;border-top:2px solid #f97316;">
+        <strong style="color:#fff;font-size:12px;display:block;margin-bottom:4px;">❌ Failures & Iterations</strong>
+        <p style="font-size:11px;color:#888;line-height:1.5;margin:0;">"This agent broke 3 times before it worked" — builds trust, shows real process. Failure content humanizes the product and the team.</p>
+      </div>
+      <div style="background:#0a0a0a;border:1px solid #1a1a1a;border-radius:8px;padding:12px;border-top:2px solid #f97316;">
+        <strong style="color:#fff;font-size:12px;display:block;margin-bottom:4px;">📈 Productivity Receipts</strong>
+        <p style="font-size:11px;color:#888;line-height:1.5;margin:0;">Actual hours and dollars saved, with context. Not inflated marketing numbers — real conservative estimates from real workflows.</p>
+      </div>
+    </div>
+
+    <h4 style="font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin:20px 0 12px;">🏢 Team Angles to Cover</h4>
+    <table class="prod-table" style="margin-bottom:20px;">
+      <tr><th>Function</th><th>Chains to Showcase</th><th>Viral Angle</th></tr>
+      <tr><td style="font-weight:600;color:#fff;">Marketing / Content</td><td>Content pipeline (clipper → drafts → schedule), competitor monitor → strategy adjustments, reply prospecting → engagement</td><td style="color:#f97316;font-style:italic;">"5 agents that run our entire X strategy"</td></tr>
+      <tr><td style="font-weight:600;color:#fff;">Engineering</td><td>Changelog scraper → feature posts, bug triage → Linear, deployment monitoring → alerts</td><td style="color:#f97316;font-style:italic;">"Engineers who stopped doing busywork"</td></tr>
+      <tr><td style="font-weight:600;color:#fff;">Operations</td><td>Meeting → actions → calendar → sheets, client onboarding pipeline, weekly reporting chains</td><td style="color:#f97316;font-style:italic;">"Our ops person manages 3x more clients now"</td></tr>
+      <tr><td style="font-weight:600;color:#fff;">Leadership</td><td>Cross-department dashboards, decision tracking, weekly exec summaries from multiple agent outputs</td><td style="color:#f97316;font-style:italic;">"I read one email on Monday and know everything"</td></tr>
+    </table>
+
+    <h4 style="font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin:20px 0 12px;">🔥 Viral-Ready Formats</h4>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:20px;">
+      <div style="background:#0a0a0a;border:1px solid #1a1a1a;border-radius:6px;padding:10px;font-size:12px;">
+        <strong style="color:#ccc;">📝 "Day in the life" threads</strong><br><span style="color:#888;">"My agents start working at 6am. I start at 9. Here's what they've done by then."</span>
+      </div>
+      <div style="background:#0a0a0a;border:1px solid #1a1a1a;border-radius:6px;padding:10px;font-size:12px;">
+        <strong style="color:#ccc;">📐 Agent chain architecture diagrams</strong><br><span style="color:#888;">Visual, shareable, educational — shows the actual system</span>
+      </div>
+      <div style="background:#0a0a0a;border:1px solid #1a1a1a;border-radius:6px;padding:10px;font-size:12px;">
+        <strong style="color:#ccc;">💀 "This chain failed" post-mortems</strong><br><span style="color:#888;">Most relatable content on tech Twitter</span>
+      </div>
+      <div style="background:#0a0a0a;border:1px solid #1a1a1a;border-radius:6px;padding:10px;font-size:12px;">
+        <strong style="color:#ccc;">⏱️ "How long did it actually take?"</strong><br><span style="color:#888;">Honest build timelines that demystify the process</span>
+      </div>
+      <div style="background:#0a0a0a;border:1px solid #1a1a1a;border-radius:6px;padding:10px;font-size:12px;">
+        <strong style="color:#ccc;">🎥 Side-by-side video</strong><br><span style="color:#888;">Manual process (sped up) vs. agent chain (real time)</span>
+      </div>
+      <div style="background:#0a0a0a;border:1px solid #1a1a1a;border-radius:6px;padding:10px;font-size:12px;">
+        <strong style="color:#ccc;">🗑️ "The agent I almost deleted"</strong><br><span style="color:#888;">Story of an agent that seemed useless until it proved its value</span>
+      </div>
+    </div>
+
+    <h4 style="font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin:20px 0 12px;">📅 Prep Needed Before Phase 3</h4>
+    <div style="background:#0f0a00;border:1px solid #f59e0b30;border-radius:8px;padding:14px;">
+      <ul style="list-style:none;margin:0;padding:0;">
+        <li style="padding:5px 0;font-size:12px;color:#ccc;">→ <strong style="color:#f59e0b;">Interview each team member</strong> about their automation journey (what they built, timeline, results)</li>
+        <li style="padding:5px 0;font-size:12px;color:#ccc;">→ <strong style="color:#f59e0b;">Document every agent chain</strong> currently running (trigger → steps → output)</li>
+        <li style="padding:5px 0;font-size:12px;color:#ccc;">→ <strong style="color:#f59e0b;">Collect real metrics</strong> — hours saved, runs completed, success rates per chain</li>
+        <li style="padding:5px 0;font-size:12px;color:#ccc;">→ <strong style="color:#f59e0b;">Identify the best "failure stories"</strong> — chains that broke and how they were fixed</li>
+        <li style="padding:5px 0;font-size:12px;color:#ccc;">→ <strong style="color:#f59e0b;">Create architecture diagrams</strong> for each multi-agent function</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div id="supp-sections"></div>
+
+</div><!-- content -->
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="mcontent"></div>
+</div>
+
+<script src="data1.js"></script>
+<script src="data2.js"></script>
+<script src="supp.js"></script>
+<script>
+
+
+const THEMES = {"real-builds": {"label": "Real Builds", "color": "#3b82f6", "bg": "#0c1929"}, "use-cases": {"label": "Use Cases", "color": "#8b5cf6", "bg": "#1a0f2e"}, "narrative": {"label": "Narrative", "color": "#f59e0b", "bg": "#1f1a0a"}, "hot-takes": {"label": "Hot Takes", "color": "#ef4444", "bg": "#1f0a0a"}, "proof": {"label": "Proof", "color": "#10b981", "bg": "#0a1f1a"}, "architecture": {"label": "How It Works", "color": "#06b6d4", "bg": "#0a1a1f"}, "community": {"label": "Community", "color": "#ec4899", "bg": "#1f0a1a"}};
+
+
+function renderCalendar() {
+  const cal = document.getElementById('calendar');
+  let html = '';
+  WEEKS.forEach(week => {
+    html += '<div class="week-row-label">' + week.label + ' <span style="color:#555">— ' + week.sublabel + '</span>';
+    html += ' <span class="phase-tag" style="background:' + week.phase_color + '20;color:' + week.phase_color + ';border:1px solid ' + week.phase_color + '40">' + week.phase + '</span>';
+    html += '</div><div class="cal-grid">';
+    week.days.forEach((day, di) => {
+      if (!day.date) { html += '<div class="day-cell empty"></div>'; return; }
+      const dayPosts = POSTS.filter(p => p.date === day.date);
+      const isWeekend = di >= 5;
+      const isLaunch = day.date === 'Mar 30';
+      let cls = 'day-cell';
+      if (isWeekend) cls += ' weekend';
+      if (isLaunch) cls += ' launch';
+      html += '<div class="' + cls + '"><div class="day-date">' + day.date + ' <span class="dow">' + day.dow + '</span>';
+      if (isLaunch) html += '<span class="launch-badge">🚀 LAUNCH</span>';
+      html += '</div>';
+      dayPosts.forEach(p => {
+        const idx = POSTS.indexOf(p);
+        const th = THEMES[p.theme] || {color:'#888',bg:'#151515'};
+        const vp = p.vid_pri;
+        const hasHash = (p.tags || []).includes('#CreaoAI');
+        html += '<div class="pc" style="border-color:' + th.color + ';background:' + th.bg + '" data-idx="' + idx + '" data-vid="' + (vp||'none') + '" onclick="openModal(' + idx + ')">';
+        html += '<div class="pc-slot">' + (p.slot==='AM'?'🌅 AM':p.slot==='PM'?'☀️ PM':'🌙 EVE') + '</div>';
+        html += '<div class="pc-title">' + escH(p.title) + '</div><div class="pc-badges">';
+        if (vp==='NECESSARY') html += '<span class="pc-badge vid-n">🎬 NEC</span>';
+        else if (vp==='OPTIONAL') html += '<span class="pc-badge vid-o">🎬 OPT</span>';
+        var vt = p.vid_type;
+        if (vt==='screenshot') html += '<span class="pc-badge" style="background:#1a1a2e;color:#818cf8">📸</span>';
+        else if (vt==='image') html += '<span class="pc-badge" style="background:#1a1a2e;color:#818cf8">🖼️</span>';
+        var pr = p.producer;
+        if (pr==='arit') html += '<span class="pc-badge" style="background:#ef444420;color:#ef4444">ARIT</span>';
+        else if (pr && pr.indexOf('colleagues')>=0) html += '<span class="pc-badge" style="background:#4ade8020;color:#4ade80">TEAM</span>';
+        else if (pr==='self' || (pr && pr.indexOf('self')>=0 && pr.indexOf('colleagues')<0)) html += '<span class="pc-badge" style="background:#60a5fa20;color:#60a5fa">SELF</span>';
+        else if (pr==='tbd') html += '<span class="pc-badge" style="background:#f59e0b20;color:#f59e0b">TBD</span>';
+        var vf = p.vid_format;
+        if (vf==='16:9') html += '<span class="pc-badge" style="background:#1a1a2e;color:#818cf8;font-size:7px">16:9</span>';
+        else if (vf==='1:1') html += '<span class="pc-badge" style="background:#1a1a2e;color:#818cf8;font-size:7px">1:1</span>';
+        if (hasHash) html += '<span class="pc-badge hash-badge">#CreaoAI</span>';
+        html += '</div></div>';
+      });
+      html += '</div>';
+    });
+    html += '</div>';
+  });
+  cal.innerHTML = html;
+}
+function escH(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+function openModal(idx) {
+  const p = POSTS[idx];
+  const th = THEMES[p.theme] || {label:p.theme,color:'#888'};
+  let h = '<button class="close-btn" onclick="closeModal()">✕</button>';
+  h += '<h3>' + escH(p.title) + '</h3>';
+  h += '<div class="m-meta">' + p.date + ' (' + p.dow + ') · ' + p.slot;
+  h += ' <span class="m-tag" style="background:' + th.color + '20;color:' + th.color + ';border:1px solid ' + th.color + '40">' + th.label + '</span>';
+  if ((p.tags||[]).includes('#CreaoAI')) h += ' <span class="m-tag" style="background:#ef444430;color:#ef4444;border:1px solid #ef444440">#CreaoAI</span>';
+  if (p.vid_pri==='NECESSARY') h += '<span class="m-tag" style="background:#1e3a5f;color:#60a5fa;border:1px solid #60a5fa40;margin-left:4px">🎬 NECESSARY</span>';
+  else if (p.vid_pri==='OPTIONAL') h += '<span class="m-tag" style="background:#2a1f0a;color:#f59e0b;border:1px solid #f59e0b40;margin-left:4px">🎬 OPTIONAL</span>';
+  if (p.vid_type==='image') h += '<span class="m-tag" style="background:#1a1a2e;color:#818cf8;border:1px solid #818cf840;margin-left:4px">🖼️ Image</span>';
+  else if (p.vid_type==='screenshot') h += '<span class="m-tag" style="background:#1a1a2e;color:#818cf8;border:1px solid #818cf840;margin-left:4px">📸 Screenshot</span>';
+  if (p.producer) {
+    var pLabels={'arit':'🔔 ARIT','colleagues':'👥 Colleagues (face+screen)','colleagues-tbc':'👥 Colleagues (TBC)','colleagues-or-self':'👥 Colleagues or Self','self':'🧑 Self','self-or-arit':'🧑 Self or ARIT','self-or-designer':'🧑 Self or Designer','tbd':'❓ TBD'};
+    var pColors={'arit':['#ef444420','#ef4444'],'colleagues':['#4ade8020','#4ade80'],'colleagues-tbc':['#f59e0b20','#f59e0b'],'colleagues-or-self':['#f59e0b20','#f59e0b'],'self':['#60a5fa20','#60a5fa'],'self-or-arit':['#f59e0b20','#f59e0b'],'self-or-designer':['#f59e0b20','#f59e0b'],'tbd':['#f59e0b20','#f59e0b']};
+    var pl=pLabels[p.producer]||p.producer;var pc=pColors[p.producer]||['#33333320','#888'];
+    h+='<span class="m-tag" style="background:'+pc[0]+';color:'+pc[1]+';border:1px solid '+pc[1]+'40;margin-left:4px">'+pl+'</span>';
+  }
+  if (p.vid_format) {
+    var fl=p.vid_format;
+    if(p.vid_type==='screen-recording')fl+=' landscape';
+    else if(p.vid_type==='on-camera'||p.vid_type==='animated')fl+=' square';
+    h+='<span class="m-tag" style="background:#1a1a2e;color:#818cf8;border:1px solid #818cf840;margin-left:4px">'+fl+'</span>';
+  }
+  h += '</div>';
+  if (p.alert) h += '<div class="m-alert">' + escH(p.alert) + '</div>';
+  h += '<div class="m-section"><h4>Draft Copy</h4><div class="m-copy">' + escH(p.copy) + '</div></div>';
+  h += '<div class="m-visual"><strong>Visual: </strong>' + escH(p.visual) + '</div>';
+  if (p.vb) {
+    const vb=p.vb;
+    h+='<div class="vb"><h4>🎬 Video Production Brief</h4>';
+    h+='<div class="vb-row"><span class="vb-label">Duration</span><span class="vb-val">'+escH(vb.duration)+'</span></div>';
+    h+='<div class="vb-row"><span class="vb-label">Style</span><span class="vb-val">'+escH(vb.style)+'</span></div>';
+    h+='<div class="vb-row"><span class="vb-label">Hook</span><span class="vb-val">'+escH(vb.hook)+'</span></div>';
+    h+='<div class="vb-row"><span class="vb-label">CTA</span><span class="vb-val">'+escH(vb.cta)+'</span></div>';
+    h+='<div class="vb-row"><span class="vb-label">Audio</span><span class="vb-val">'+escH(vb.audio)+'</span></div>';
+    h+='</div>';
+  }
+  document.getElementById('mcontent').innerHTML=h;
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+function filterPosts(type){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.pc').forEach(card=>{
+    const vid=card.dataset.vid;
+    if(type==='all')card.style.display='';
+    else if(type==='necessary')card.style.display=vid==='NECESSARY'?'':'none';
+    else if(type==='optional')card.style.display=vid==='OPTIONAL'?'':'none';
+    else card.style.display=vid==='none'?'':'none';
+  });
+}
+renderCalendar();
+
+</script>
+</body>
+</html>
