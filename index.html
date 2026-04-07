@@ -387,7 +387,8 @@ function renderCalendar() {
         const vp = p.vid_pri;
         const hasHash = (p.tags || []).includes('#CreaoAI');
         html += '<div class="pc" style="border-color:' + th.color + ';background:' + th.bg + '" data-idx="' + idx + '" data-vid="' + (vp||'none') + '" onclick="openModal(' + idx + ')">';
-        html += '<div class="pc-slot">' + (p.slot==='AM'?'🌅 AM':p.slot==='PM'?'☀️ PM':'🌙 EVE') + '</div>';
+        const slotIcons = {'EARLY':'🌑 EARLY','NIGHT':'🌑 NIGHT','AM':'🌅 AM','PM':'☀️ PM','EVE':'🌙 EVE','LATE':'🌙 LATE'};
+        html += '<div class="pc-slot">' + (slotIcons[p.slot] || p.slot) + '</div>';
         html += '<div class="pc-title">' + escH(p.title) + '</div><div class="pc-badges">';
         if (vp==='NECESSARY') html += '<span class="pc-badge vid-n">🎬 NEC</span>';
         else if (vp==='OPTIONAL') html += '<span class="pc-badge vid-o">🎬 OPT</span>';
