@@ -1,0 +1,1 @@
+document.getElementById('supp-sections').innerHTML=;
