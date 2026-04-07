@@ -370,7 +370,9 @@ function renderCalendar() {
     html += '</div><div class="cal-grid">';
     week.days.forEach((day, di) => {
       if (!day.date) { html += '<div class="day-cell empty"></div>'; return; }
-      const dayPosts = POSTS.filter(p => p.date === day.date);
+      const SLOT_ORDER = ['EARLY','NIGHT','AM','PM','EVE','LATE','BANK'];
+      const dayPosts = POSTS.filter(p => p.date === day.date && p.slot !== 'BANK')
+        .sort((a,b) => SLOT_ORDER.indexOf(a.slot||'AM') - SLOT_ORDER.indexOf(b.slot||'AM'));
       const isWeekend = di >= 5;
       const isLaunch = day.date === 'Mar 30';
       let cls = 'day-cell';
