@@ -35,13 +35,14 @@ document.getElementById('supp-sections').innerHTML=`<!-- ARIT TIMELINE -->
     <tr><td style="font-weight:600;color:#fff">Unlimited Image Gen Promo</td><td>Thu Apr 2 EARLY</td><td style="color:#60a5fa">🧑 Self</td><td>1:1</td><td>Screen recording</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
     <tr><td style="font-weight:600;color:#fff">MAX Thinking Promo Video</td><td>Fri Apr 3 EARLY</td><td style="color:#60a5fa">🧑 Self</td><td>1:1</td><td>Screen recording</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
     <tr><td style="font-weight:600;color:#fff">Agent Files Promo Video</td><td>Sat Apr 4 EARLY</td><td style="color:#60a5fa">🧑 Self</td><td>1:1</td><td>Screen recording</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
+    <tr><td style="font-weight:600;color:#fff">Dashboard Demo</td><td>Wed Apr 8 EARLY</td><td style="color:#60a5fa">🧑 Self</td><td>16:9</td><td>Screen recording</td><td>❌</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
     <tr><td style="font-weight:600;color:#fff">Feature: QFU Messages</td><td>Wed Apr 8 AM</td><td style="color:#4ade80">👥 Colleagues</td><td>1:1</td><td>Face + screen rec</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
     <tr><td style="font-weight:600;color:#fff">#3 Multimodal</td><td>Fri Apr 3 PM</td><td style="color:#a78bfa">🎬 Rachel</td><td>1:1</td><td>Face + screen rec</td><td>TBC</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
     <tr><td style="font-weight:600;color:#fff">#4 Memory</td><td>Sun Apr 5 PM</td><td style="color:#4ade80">👥 Daksh</td><td>1:1</td><td>Face + screen rec</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
     <tr><td style="font-weight:600;color:#fff">#5 Scheduling</td><td>Mon Apr 6 AM</td><td style="color:#a78bfa">🎬 Charis-cut</td><td>16:9</td><td>Face + screen rec</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
     <tr><td style="font-weight:600;color:#fff">#6 Connectors</td><td>Tue Apr 7 AM</td><td style="color:#4ade80">👥 Colleagues</td><td>1:1</td><td>Face + screen rec</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
     <tr><td style="font-weight:600;color:#fff">#7 Persistent Files</td><td>Thu Apr 9 AM</td><td style="color:#f59e0b">❓ Colleagues or Self</td><td>16:9</td><td>Screen recording</td><td>TBC</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
-    <tr><td style="font-weight:600;color:#fff">#8 Team Sharing</td><td>Fri Apr 10 AM</td><td style="color:#f59e0b">❓ Colleagues or Self</td><td>16:9</td><td>Screen recording</td><td>TBC</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
+    <tr><td style="font-weight:600;color:#fff">#8 Team Sharing</td><td>Fri Apr 17 AM</td><td style="color:#f59e0b">❓ Colleagues or Self</td><td>16:9</td><td>Screen recording</td><td>TBC</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
     <tr><td style="font-weight:600;color:#fff">Competitor Intel</td><td>Fri Apr 10 AM</td><td style="color:#60a5fa">🧑 Self (ARIT edit)</td><td>16:9</td><td>Screen recording</td><td>❌</td><td style="color:#f59e0b;font-weight:700;font-size:10px">OPT</td></tr>
     <tr><td style="font-weight:600;color:#fff">Two-Week Recap</td><td>Sat Apr 11 AM</td><td style="color:#60a5fa">🧑 Self</td><td>1:1</td><td>AI animated</td><td>❌</td><td style="color:#f59e0b;font-weight:700;font-size:10px">OPT</td></tr>
     <tr><td style="font-weight:600;color:#fff">We Use CREAO</td><td>Sat Apr 11 PM</td><td style="color:#f59e0b">❓ Self or Designer</td><td>16:9</td><td>Screen rec / 📸</td><td>TBC</td><td style="color:#f59e0b;font-weight:700;font-size:10px">OPT</td></tr>
@@ -78,8 +79,9 @@ document.getElementById('supp-sections').innerHTML=`<!-- ARIT TIMELINE -->
     <tr><td style="color:#f59e0b;font-weight:600">Apr 5 7PM</td><td>Sun Apr 5 9PM</td><td>Compounding loop graphic</td><td style="text-align:center">🎨</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 6 7PM</td><td>Mon Apr 6 9PM</td><td>Branded question card (What Did You Build?)</td><td style="text-align:center">🎨</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 7 7PM</td><td>Tue Apr 7 9PM</td><td>Community question card</td><td style="text-align:center">🎨</td></tr>
-    <tr><td style="color:#f59e0b;font-weight:600">Apr 8 7PM</td><td>Wed Apr 8 9PM</td><td>&quot;Hundred conversations&quot; quote card</td><td style="text-align:center">💬</td></tr>
-    <tr><td style="color:#f59e0b;font-weight:600">Apr 9 7PM</td><td>Thu Apr 9 9PM</td><td>&quot;Week 1: Try → Week 2: Share&quot; graphic</td><td style="text-align:center">🎨</td></tr>
+    <tr><td style="color:#f59e0b;font-weight:600">Apr 8 7PM</td><td>Wed Apr 8 9PM</td><td>&quot;The hardest part isn't the first step&quot; quote card</td><td style="text-align:center">💬</td></tr>
+    <tr><td style="color:#f59e0b;font-weight:600">Apr 9 7PM</td><td>Thu Apr 9 9PM</td><td>&quot;Hundred conversations&quot; quote card</td><td style="text-align:center">💬</td></tr>
+    <tr><td style="color:#f59e0b;font-weight:600">Apr 17 7PM</td><td>Fri Apr 17 9PM</td><td>&quot;Week 1: Try → Week 2: Share&quot; graphic</td><td style="text-align:center">🎨</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 10 7PM</td><td>Fri Apr 10 5PM</td><td>Lane&#x27;s framework quote card</td><td style="text-align:center">💬</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 10 7PM</td><td>Fri Apr 10 9PM</td><td>&quot;Task→Workflow→System&quot; progression</td><td style="text-align:center">🎨</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 11 7PM</td><td>Sat Apr 11 9PM</td><td>&quot;Features vs systems&quot; quote card</td><td style="text-align:center">💬</td></tr>
@@ -119,7 +121,7 @@ document.getElementById('supp-sections').innerHTML=`<!-- ARIT TIMELINE -->
 <tr><td style="color:#f59e0b;font-weight:600">Apr 6</td><td>Mon PM</td><td>Email in inbox from agent</td><td>Subject + first 3 lines</td></tr>
 <tr><td style="color:#f59e0b;font-weight:600">Apr 7</td><td>Tue PM</td><td>Action items from transcription</td><td>List only, 5-6 items</td></tr>
 <tr><td style="color:#f59e0b;font-weight:600">Apr 9</td><td>Thu PM</td><td>File manager</td><td>Files from multiple dates</td></tr>
-<tr><td style="color:#f59e0b;font-weight:600">Apr 10</td><td>Fri PM</td><td>Agent with input fields</td><td>Top of agent view</td></tr>
+<tr><td style="color:#f59e0b;font-weight:600">Apr 17</td><td>Fri PM</td><td>Agent with input fields</td><td>Top of agent view</td></tr>
 <tr><td style="color:#f59e0b;font-weight:600">Apr 10</td><td>Fri AM</td><td>Competitor report</td><td>Engagement chart</td></tr>
 <tr><td style="color:#f59e0b;font-weight:600">Apr 13</td><td>Mon PM</td><td>Dashboard from internal API</td><td>Top section</td></tr>
 <tr><td style="color:#f59e0b;font-weight:600">Apr 14</td><td>Tue PM</td><td>Slide deck in file preview</td><td>Title slide + one content slide</td></tr>
