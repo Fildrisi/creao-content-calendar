@@ -95,10 +95,10 @@ document.getElementById('supp-sections').innerHTML=`<!-- ARIT TIMELINE -->
     <tr><td style="color:#f59e0b;font-weight:600">Apr 15 7PM</td><td>Wed Apr 15 9PM</td><td>&quot;The world runs on websites&quot; quote card</td><td style="text-align:center">💬</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 16 8AM</td><td>Thu Apr 16 10AM</td><td>Sandbox architecture graphic</td><td style="text-align:center">🎨</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 16 7PM</td><td>Thu Apr 16 9PM</td><td>&quot;Operating system for agents&quot; quote card</td><td style="text-align:center">💬</td></tr>
-    <tr><td style="color:#f59e0b;font-weight:600">Apr 17 8AM</td><td>Fri Apr 17 10AM</td><td>&quot;Shipped&quot; card template (reusable!)</td><td style="text-align:center">🎨</td></tr>
-    <tr><td style="color:#f59e0b;font-weight:600">Apr 18 8AM</td><td>Sat Apr 18 10AM</td><td>&quot;1 person + 5 agents = 3x&quot; graphic</td><td style="text-align:center">🎨</td></tr>
-    <tr><td style="color:#f59e0b;font-weight:600">Apr 18 7PM</td><td>Sat Apr 18 9PM</td><td>&quot;Parts of your job that aren&#x27;t your job&quot; quote card</td><td style="text-align:center">💬</td></tr>
-    <tr><td style="color:#f59e0b;font-weight:600">Apr 19 8AM</td><td>Sun Apr 19 10AM</td><td>Three-week progression graphic</td><td style="text-align:center">🎨</td></tr>
+    <tr><td style="color:#f59e0b;font-weight:600">Apr 18 8AM</td><td>Sat Apr 18 10AM</td><td>&quot;Shipped&quot; card template (reusable!)</td><td style="text-align:center">🎨</td></tr>
+    <tr><td style="color:#f59e0b;font-weight:600">Apr 19 8AM</td><td>Sun Apr 19 10AM</td><td>&quot;1 person + 5 agents = 3x&quot; graphic</td><td style="text-align:center">🎨</td></tr>
+    <tr><td style="color:#f59e0b;font-weight:600">Apr 19 3PM</td><td>Sun Apr 19 5PM</td><td>&quot;Parts of your job that aren&#x27;t your job&quot; quote card</td><td style="text-align:center">💬</td></tr>
+    <tr><td style="color:#f59e0b;font-weight:600">Apr 19 7PM</td><td>Sun Apr 19 9PM</td><td>Three-week progression graphic</td><td style="text-align:center">🎨</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 20 5PM</td><td>Mon Apr 20 5PM</td><td>&quot;Building once and compounding&quot; quote card</td><td style="text-align:center">💬</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 20 7PM</td><td>Mon Apr 20 9PM</td><td>&quot;Manual vs agent&quot; side-by-side</td><td style="text-align:center">🎨</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 21 3PM</td><td>Tue Apr 21 5PM</td><td>&quot;2 weeks → 2 hours&quot; timeline</td><td style="text-align:center">🎨</td></tr>
