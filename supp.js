@@ -3,12 +3,15 @@ document.getElementById('supp-sections').innerHTML=`<!-- ARIT TIMELINE -->
   <h2>🔔 ARIT Video Request Timeline</h2>
   <p class="sub">Max 2 videos (3 if necessary). 1 week lead time required.</p>
   <div class="arit-banner">
-    <strong>⚠️ ARIT Rules:</strong> Max 2 videos guaranteed. 3rd slot (Browser Use) only if ARIT confirms capacity. Request early — 1 week lead time minimum.<br><strong>Update Apr 1:</strong> Scheduling (#5) moved from ARIT to Charis cut. ARIT now has 2 confirmed slots: #9 APIs + Secrets (Apr 13) and Meeting Pipeline (Apr 23). Browser Use 3rd slot still TBC.
+    <strong>⚠️ ARIT Rules:</strong> Request early — 1 week lead time minimum. ARIT is now reserved for <strong>real demos only</strong> (not feature announcements or use cases).<br><strong>Update Apr 7:</strong> #9 APIs + Secrets and #11 Browser Use both moved to <strong>colleagues</strong>. Only confirmed ARIT slot: Meeting Pipeline (Apr 23). ARIT available for real-world workflow demos as needed.
   </div>
   <table class="arit-table">
 <tr><td style="color:#4ade80;font-weight:700;font-size:14px;white-space:nowrap">Mar 30</td><td>✅ <s>Scheduling demo</s> — moved to <strong>Charis cut</strong> from long-form tutorial. No ARIT request needed.</td></tr>
 <tr><td style="color:#4ade80;font-weight:700;font-size:14px;white-space:nowrap">Mar 31</td><td>✅ <s>Connectors demo</s> — handled by <strong>colleagues</strong> (not ARIT). No ARIT request needed.</td></tr>
-<tr><td style="color:#ef4444;font-weight:700;font-size:14px;white-space:nowrap">Apr 8</td><td>🔔 Request <strong>Browser Use demo</strong> from ARIT — if 3rd slot available (due Apr 15). Most impressive Tier 3 feature.</td></tr>
+<tr><td style="color:#4ade80;font-weight:700;font-size:14px;white-space:nowrap">Apr 13</td><td>✅ <s>#9 APIs + Secrets</s> — moved to <strong>colleagues</strong>. No ARIT request needed.</td></tr>
+<tr><td style="color:#4ade80;font-weight:700;font-size:14px;white-space:nowrap">Apr 15</td><td>✅ <s>#11 Browser Use</s> — moved to <strong>colleagues</strong>. No ARIT request needed.</td></tr>
+<tr><td style="color:#f59e0b;font-weight:700;font-size:14px;white-space:nowrap">Apr 23</td><td>🔔 <strong>Meeting Pipeline</strong> — ARIT confirmed slot (real demo). Due Apr 16.</td></tr>
+<tr><td style="color:#888;font-weight:700;font-size:14px;white-space:nowrap">TBD</td><td>💡 ARIT available for <strong>real-world workflow demos</strong> — not feature videos. Coordinate separately when ready.</td></tr>
 
   </table>
 </div>
@@ -46,7 +49,7 @@ document.getElementById('supp-sections').innerHTML=`<!-- ARIT TIMELINE -->
     <tr><td style="font-weight:600;color:#fff">Competitor Intel</td><td>Fri Apr 10 AM</td><td style="color:#60a5fa">🧑 Self (ARIT edit)</td><td>16:9</td><td>Screen recording</td><td>❌</td><td style="color:#f59e0b;font-weight:700;font-size:10px">OPT</td></tr>
     <tr><td style="font-weight:600;color:#fff">Two-Week Recap</td><td>Sat Apr 11 AM</td><td style="color:#60a5fa">🧑 Self</td><td>1:1</td><td>AI animated</td><td>❌</td><td style="color:#f59e0b;font-weight:700;font-size:10px">OPT</td></tr>
     <tr><td style="font-weight:600;color:#fff">We Use CREAO</td><td>Sat Apr 11 PM</td><td style="color:#f59e0b">❓ Self or Designer</td><td>16:9</td><td>Screen rec / 📸</td><td>TBC</td><td style="color:#f59e0b;font-weight:700;font-size:10px">OPT</td></tr>
-    <tr><td style="font-weight:600;color:#fff">#9 APIs + Secrets</td><td>Mon Apr 13 AM</td><td style="color:#ef4444">🔔 ARIT</td><td>16:9</td><td>Screen recording</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
+    <tr><td style="font-weight:600;color:#fff">#9 APIs + Secrets</td><td>Mon Apr 13 AM</td><td style="color:#4ade80">👥 Colleagues</td><td>16:9</td><td>Screen recording</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
     <tr><td style="font-weight:600;color:#fff">#10 Skills</td><td>Tue Apr 14 AM</td><td style="color:#4ade80">👥 Colleagues</td><td>1:1</td><td>Face + screen rec</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
     <tr><td style="font-weight:600;color:#fff">#11 Browser Use</td><td>Wed Apr 15 AM</td><td style="color:#4ade80">👥 Colleagues</td><td>16:9</td><td>Face + screen rec</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
     <tr><td style="font-weight:600;color:#fff">Sandbox</td><td>Thu Apr 16 AM</td><td style="color:#666">—</td><td>—</td><td>🖼️ Image</td><td>N/A</td><td style="color:#666;font-weight:700;font-size:10px">—</td></tr>
