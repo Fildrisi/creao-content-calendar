@@ -355,10 +355,123 @@ details[open] summary{margin-bottom:8px}
     </div>
   </div>
 </div>
+
+<div id="supp-sections"></div>
+<script src="supp.js"></script>
+
 <script src="data1.js"></script>
 <script src="data2.js"></script>
+<script>/* POSTS loaded from data files */;
+const THEMES = {"real-builds": {"label": "Real Builds", "color": "#3b82f6", "bg": "#0c1929"}, "use-cases": {"label": "Use Cases", "color": "#8b5cf6", "bg": "#1a0f2e"}, "narrative": {"label": "Narrative", "color": "#f59e0b", "bg": "#1f1a0a"}, "hot-takes": {"label": "Hot Takes", "color": "#ef4444", "bg": "#1f0a0a"}, "proof": {"label": "Proof", "color": "#10b981", "bg": "#0a1f1a"}, "architecture": {"label": "How It Works", "color": "#06b6d4", "bg": "#0a1a1f"}, "community": {"label": "Community", "color": "#ec4899", "bg": "#1f0a1a"}};
+/* WEEKS loaded from data files */
 
-
-</div>
+function renderCalendar() {
+  const cal = document.getElementById('calendar');
+  let html = '';
+  WEEKS.forEach(week => {
+    html += '<div class="week-row-label">' + week.label + ' <span style="color:#555">— ' + week.sublabel + '</span>';
+    html += ' <span class="phase-tag" style="background:' + week.phase_color + '20;color:' + week.phase_color + ';border:1px solid ' + week.phase_color + '40">' + week.phase + '</span>';
+    html += '</div><div class="cal-grid">';
+    week.days.forEach((day, di) => {
+      if (!day.date) { html += '<div class="day-cell empty"></div>'; return; }
+      const SLOT_ORDER = ['EARLY','NIGHT','AM','PM','EVE','LATE','BANK'];
+      const dayPosts = POSTS.filter(p => p.date === day.date && p.slot !== 'BANK')
+        .sort((a,b) => SLOT_ORDER.indexOf(a.slot||'AM') - SLOT_ORDER.indexOf(b.slot||'AM'));
+      const isWeekend = di >= 5;
+      const isLaunch = day.date === 'Mar 30';
+      let cls = 'day-cell';
+      if (isWeekend) cls += ' weekend';
+      if (isLaunch) cls += ' launch';
+      html += '<div class="' + cls + '"><div class="day-date">' + day.date + ' <span class="dow">' + day.dow + '</span>';
+      if (isLaunch) html += '<span class="launch-badge">🚀 LAUNCH</span>';
+      html += '</div>';
+      dayPosts.forEach(p => {
+        const idx = POSTS.indexOf(p);
+        const th = THEMES[p.theme] || {color:'#888',bg:'#151515'};
+        const vp = p.vid_pri;
+        const hasHash = (p.tags || []).includes('#CreaoAI');
+        html += '<div class="pc" style="border-color:' + th.color + ';background:' + th.bg + '" data-idx="' + idx + '" data-vid="' + (vp||'none') + '" onclick="openModal(' + idx + ')">';
+        const slotIcons = {'EARLY':'🌑 EARLY','NIGHT':'🌑 NIGHT','AM':'🌅 AM','PM':'☀️ PM','EVE':'🌙 EVE','LATE':'🌙 LATE'};
+        html += '<div class="pc-slot">' + (slotIcons[p.slot] || p.slot) + '</div>';
+        html += '<div class="pc-title">' + escH(p.title) + '</div><div class="pc-badges">';
+        if (vp==='NECESSARY') html += '<span class="pc-badge vid-n">🎬 NEC</span>';
+        else if (vp==='OPTIONAL') html += '<span class="pc-badge vid-o">🎬 OPT</span>';
+        var vt = p.vid_type;
+        if (vt==='screenshot') html += '<span class="pc-badge" style="background:#1a1a2e;color:#818cf8">📸</span>';
+        else if (vt==='image') html += '<span class="pc-badge" style="background:#1a1a2e;color:#818cf8">🖼️</span>';
+        var pr = p.producer;
+        if (pr==='arit') html += '<span class="pc-badge" style="background:#ef444420;color:#ef4444">ARIT</span>';
+        else if (pr && pr.indexOf('colleagues')>=0) html += '<span class="pc-badge" style="background:#4ade8020;color:#4ade80">TEAM</span>';
+        else if (pr==='self' || (pr && pr.indexOf('self')>=0 && pr.indexOf('colleagues')<0)) html += '<span class="pc-badge" style="background:#60a5fa20;color:#60a5fa">SELF</span>';
+        else if (pr==='tbd') html += '<span class="pc-badge" style="background:#f59e0b20;color:#f59e0b">TBD</span>';
+        var vf = p.vid_format;
+        if (vf==='16:9') html += '<span class="pc-badge" style="background:#1a1a2e;color:#818cf8;font-size:7px">16:9</span>';
+        else if (vf==='1:1') html += '<span class="pc-badge" style="background:#1a1a2e;color:#818cf8;font-size:7px">1:1</span>';
+        if (hasHash) html += '<span class="pc-badge hash-badge">#CreaoAI</span>';
+        html += '</div></div>';
+      });
+      html += '</div>';
+    });
+    html += '</div>';
+  });
+  cal.innerHTML = html;
+}
+function escH(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+function openModal(idx) {
+  const p = POSTS[idx];
+  const th = THEMES[p.theme] || {label:p.theme,color:'#888'};
+  let h = '<button class="close-btn" onclick="closeModal()">✕</button>';
+  h += '<h3>' + escH(p.title) + '</h3>';
+  h += '<div class="m-meta">' + p.date + ' (' + p.dow + ') · ' + p.slot;
+  h += ' <span class="m-tag" style="background:' + th.color + '20;color:' + th.color + ';border:1px solid ' + th.color + '40">' + th.label + '</span>';
+  if ((p.tags||[]).includes('#CreaoAI')) h += ' <span class="m-tag" style="background:#ef444430;color:#ef4444;border:1px solid #ef444440">#CreaoAI</span>';
+  if (p.vid_pri==='NECESSARY') h += '<span class="m-tag" style="background:#1e3a5f;color:#60a5fa;border:1px solid #60a5fa40;margin-left:4px">🎬 NECESSARY</span>';
+  else if (p.vid_pri==='OPTIONAL') h += '<span class="m-tag" style="background:#2a1f0a;color:#f59e0b;border:1px solid #f59e0b40;margin-left:4px">🎬 OPTIONAL</span>';
+  if (p.vid_type==='image') h += '<span class="m-tag" style="background:#1a1a2e;color:#818cf8;border:1px solid #818cf840;margin-left:4px">🖼️ Image</span>';
+  else if (p.vid_type==='screenshot') h += '<span class="m-tag" style="background:#1a1a2e;color:#818cf8;border:1px solid #818cf840;margin-left:4px">📸 Screenshot</span>';
+  if (p.producer) {
+    var pLabels={'arit':'🔔 ARIT','colleagues':'👥 Colleagues (face+screen)','colleagues-tbc':'👥 Colleagues (TBC)','colleagues-or-self':'👥 Colleagues or Self','self':'🧑 Self','self-or-arit':'🧑 Self or ARIT','self-or-designer':'🧑 Self or Designer','tbd':'❓ TBD'};
+    var pColors={'arit':['#ef444420','#ef4444'],'colleagues':['#4ade8020','#4ade80'],'colleagues-tbc':['#f59e0b20','#f59e0b'],'colleagues-or-self':['#f59e0b20','#f59e0b'],'self':['#60a5fa20','#60a5fa'],'self-or-arit':['#f59e0b20','#f59e0b'],'self-or-designer':['#f59e0b20','#f59e0b'],'tbd':['#f59e0b20','#f59e0b']};
+    var pl=pLabels[p.producer]||p.producer;var pc=pColors[p.producer]||['#33333320','#888'];
+    h+='<span class="m-tag" style="background:'+pc[0]+';color:'+pc[1]+';border:1px solid '+pc[1]+'40;margin-left:4px">'+pl+'</span>';
+  }
+  if (p.vid_format) {
+    var fl=p.vid_format;
+    if(p.vid_type==='screen-recording')fl+=' landscape';
+    else if(p.vid_type==='on-camera'||p.vid_type==='animated')fl+=' square';
+    h+='<span class="m-tag" style="background:#1a1a2e;color:#818cf8;border:1px solid #818cf840;margin-left:4px">'+fl+'</span>';
+  }
+  h += '</div>';
+  if (p.alert) h += '<div class="m-alert">' + escH(p.alert) + '</div>';
+  h += '<div class="m-section"><h4>Draft Copy</h4><div class="m-copy">' + escH(p.copy) + '</div></div>';
+  h += '<div class="m-visual"><strong>Visual: </strong>' + escH(p.visual) + '</div>';
+  if (p.vb) {
+    const vb=p.vb;
+    h+='<div class="vb"><h4>🎬 Video Production Brief</h4>';
+    h+='<div class="vb-row"><span class="vb-label">Duration</span><span class="vb-val">'+escH(vb.duration)+'</span></div>';
+    h+='<div class="vb-row"><span class="vb-label">Style</span><span class="vb-val">'+escH(vb.style)+'</span></div>';
+    h+='<div class="vb-row"><span class="vb-label">Hook</span><span class="vb-val">'+escH(vb.hook)+'</span></div>';
+    h+='<div class="vb-row"><span class="vb-label">CTA</span><span class="vb-val">'+escH(vb.cta)+'</span></div>';
+    h+='<div class="vb-row"><span class="vb-label">Audio</span><span class="vb-val">'+escH(vb.audio)+'</span></div>';
+    h+='</div>';
+  }
+  document.getElementById('mcontent').innerHTML=h;
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+function filterPosts(type){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.querySelectorAll('.pc').forEach(card=>{
+    const vid=card.dataset.vid;
+    if(type==='all')card.style.display='';
+    else if(type==='necessary')card.style.display=vid==='NECESSARY'?'':'none';
+    else if(type==='optional')card.style.display=vid==='OPTIONAL'?'':'none';
+    else card.style.display=vid==='none'?'':'none';
+  });
+}
+renderCalendar();
+</script>
 </body>
 </html>
