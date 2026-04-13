@@ -448,6 +448,12 @@ function openModal(idx) {
   }
   h += '</div>';
   if (p.alert) h += '<div class="m-alert">' + escH(p.alert) + '</div>';
+  if (p.tweet_url) {
+    h += '<div style="background:#1f1a00;border:1px solid #f59e0b60;border-radius:6px;padding:8px 12px;margin-bottom:12px;display:flex;align-items:center;gap:8px;">';
+    h += '<span style="font-size:10px;font-weight:700;color:#f59e0b;text-transform:uppercase;letter-spacing:0.5px;flex-shrink:0;">🔗 Posted</span>';
+    h += '<a href="' + p.tweet_url + '" target="_blank" style="color:#f59e0b;font-size:12px;text-decoration:none;word-break:break-all;">' + p.tweet_url + '</a>';
+    h += '</div>';
+  }
   h += '<div class="m-section"><h4>Draft Copy</h4><div class="m-copy">' + escH(p.copy) + '</div></div>';
   h += '<div class="m-visual"><strong>Visual: </strong>' + escH(p.visual) + '</div>';
   if (p.vb) {
