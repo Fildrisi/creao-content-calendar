@@ -1,4 +1,4 @@
-document.getElementById('supp-sections').innerHTML=`<!-- ARIT TIMELINE -->
+if(document.getElementById('supp-sections'))document.getElementById('supp-sections').innerHTML=`<!-- ARIT TIMELINE -->
 <div class="section-divider">
   <h2>🔔 ARIT Video Request Timeline</h2>
   <p class="sub">Max 2 videos (3 if necessary). 1 week lead time required.</p>
@@ -137,8 +137,4 @@ document.getElementById('supp-sections').innerHTML=`<!-- ARIT TIMELINE -->
 </div><!-- content -->
 
 <!-- MODAL -->
-<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
-  <div class="modal" id="mcontent"></div>
-</div>
-
 `;
