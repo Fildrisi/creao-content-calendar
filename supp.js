@@ -50,8 +50,8 @@ document.getElementById('supp-sections').innerHTML=`<!-- ARIT TIMELINE -->
     <tr><td style="font-weight:600;color:#fff">Two-Week Recap</td><td>Sat Apr 11 AM</td><td style="color:#60a5fa">🧑 Self</td><td>1:1</td><td>AI animated</td><td>❌</td><td style="color:#f59e0b;font-weight:700;font-size:10px">OPT</td></tr>
     <tr><td style="font-weight:600;color:#fff">We Use CREAO</td><td>Sat Apr 11 PM</td><td style="color:#f59e0b">❓ Self or Designer</td><td>16:9</td><td>Screen rec / 📸</td><td>TBC</td><td style="color:#f59e0b;font-weight:700;font-size:10px">OPT</td></tr>
     <tr><td style="font-weight:600;color:#fff">#9 APIs + Secrets</td><td>Mon Apr 13 AM</td><td style="color:#4ade80">👥 Colleagues</td><td>16:9</td><td>Screen recording</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
-    <tr><td style="font-weight:600;color:#fff">#10 Skills</td><td>Tue Apr 14 AM</td><td style="color:#4ade80">👥 Colleagues</td><td>1:1</td><td>Face + screen rec</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
-    <tr><td style="font-weight:600;color:#fff">#11 Browser Use</td><td>Wed Apr 15 AM</td><td style="color:#4ade80">👥 Colleagues</td><td>16:9</td><td>Face + screen rec</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
+    <tr><td style="font-weight:600;color:#fff">#10 Skills</td><td>Thu Apr 16 AM</td><td style="color:#4ade80">👥 Colleagues</td><td>1:1</td><td>Face + screen rec</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
+    <tr><td style="font-weight:600;color:#fff">#11 Browser Use</td><td>Tue Apr 14 AM</td><td style="color:#4ade80">👥 Colleagues</td><td>16:9</td><td>Face + screen rec</td><td>✅</td><td style="color:#ef4444;font-weight:700;font-size:10px">NEC</td></tr>
     <tr><td style="font-weight:600;color:#fff">Sandbox</td><td>Thu Apr 16 AM</td><td style="color:#666">—</td><td>—</td><td>🖼️ Image</td><td>N/A</td><td style="color:#666;font-weight:700;font-size:10px">—</td></tr>
     <tr><td style="font-weight:600;color:#fff">Multi-Feature</td><td>Thu Apr 16 PM</td><td style="color:#4ade80">👥 Colleagues</td><td>1:1</td><td>Face + screen rec</td><td>✅</td><td style="color:#f59e0b;font-weight:700;font-size:10px">OPT</td></tr>
     <tr><td style="font-weight:600;color:#fff">Time Savings</td><td>Fri Apr 17 PM</td><td style="color:#60a5fa">🧑 Self</td><td>1:1</td><td>AI animated</td><td>❌</td><td style="color:#f59e0b;font-weight:700;font-size:10px">OPT</td></tr>
@@ -92,8 +92,8 @@ document.getElementById('supp-sections').innerHTML=`<!-- ARIT TIMELINE -->
     <tr><td style="color:#f59e0b;font-weight:600">Apr 12 7PM</td><td>Sun Apr 12 9PM</td><td>&quot;Not a product you open. A system that runs.&quot; quote card</td><td style="text-align:center">💬</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 13 7PM</td><td>Mon Apr 13 9PM</td><td>&quot;Can&#x27;t talk to YOUR tools&quot; quote card</td><td style="text-align:center">💬</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 14 7PM</td><td>Tue Apr 14 9PM</td><td>&quot;33 built-in + ∞ custom&quot; graphic</td><td style="text-align:center">🎨</td></tr>
-    <tr><td style="color:#f59e0b;font-weight:600">Apr 15 7PM</td><td>Wed Apr 15 9PM</td><td>&quot;The world runs on websites&quot; quote card</td><td style="text-align:center">💬</td></tr>
-    <tr><td style="color:#f59e0b;font-weight:600">Apr 16 8AM</td><td>Thu Apr 16 10AM</td><td>Sandbox architecture graphic</td><td style="text-align:center">🎨</td></tr>
+    
+    <tr><td style="color:#f59e0b;font-weight:600">Apr 17 8AM</td><td>Fri Apr 17 10AM</td><td>Sandbox architecture graphic</td><td style="text-align:center">🎨</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 16 7PM</td><td>Thu Apr 16 9PM</td><td>&quot;Operating system for agents&quot; quote card</td><td style="text-align:center">💬</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 18 8AM</td><td>Sat Apr 18 10AM</td><td>&quot;Shipped&quot; card template (reusable!)</td><td style="text-align:center">🎨</td></tr>
     <tr><td style="color:#f59e0b;font-weight:600">Apr 19 8AM</td><td>Sun Apr 19 10AM</td><td>&quot;1 person + 5 agents = 3x&quot; graphic</td><td style="text-align:center">🎨</td></tr>
@@ -127,11 +127,18 @@ document.getElementById('supp-sections').innerHTML=`<!-- ARIT TIMELINE -->
 <tr><td style="color:#f59e0b;font-weight:600">Apr 17</td><td>Fri PM</td><td>Agent with input fields</td><td>Top of agent view</td></tr>
 <tr><td style="color:#f59e0b;font-weight:600">Apr 10</td><td>Fri AM</td><td>Competitor report</td><td>Engagement chart</td></tr>
 <tr><td style="color:#f59e0b;font-weight:600">Apr 13</td><td>Mon PM</td><td>Dashboard from internal API</td><td>Top section</td></tr>
-<tr><td style="color:#f59e0b;font-weight:600">Apr 14</td><td>Tue PM</td><td>Slide deck in file preview</td><td>Title slide + one content slide</td></tr>
-<tr><td style="color:#f59e0b;font-weight:600">Apr 15</td><td>Wed PM</td><td>Pricing comparison table</td><td>Header + first rows</td></tr>
+<tr><td style="color:#f59e0b;font-weight:600">Apr 16</td><td>Thu PM</td><td>Slide deck in file preview</td><td>Title slide + one content slide</td></tr>
+<tr><td style="color:#f59e0b;font-weight:600">Apr 14</td><td>Tue PM</td><td>Pricing comparison table</td><td>Header + first rows</td></tr>
 <tr><td style="color:#f59e0b;font-weight:600">Apr 22</td><td>Wed AM</td><td>Generated invoice PDF</td><td>Top half</td></tr>
 
   </table>
+</div>
+
+</div><!-- content -->
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="mcontent"></div>
 </div>
 
 `;
